@@ -11,10 +11,10 @@ export default function User() {
     debug("user no dashboard user", user)
     useEffect(() => {
         if (!user) return router.push('/')
-    }, [router])
+    }, [router, user])
     return (
         <>
-            <h2>Bem Vindo usuário</h2>
+            <h2 className={styles.text}>Bem Vindo usuário</h2>
             <h4>email: {user && user.email}</h4>
         </>
     )

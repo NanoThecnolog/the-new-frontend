@@ -3,7 +3,7 @@
  * @param args Argumentos para debugar no console
  */
 
-export function debug(...args: any[]) {
+export function debug(...args: unknown[]) {
     const enviroment = process.env.NEXT_PUBLIC_DEBUG
     if (!enviroment) return console.log("variável de ambiente não definida")
     if (enviroment === "development") {

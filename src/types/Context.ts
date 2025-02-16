@@ -5,7 +5,7 @@ export type ContextProviderProps = {
     children: ReactNode;
 }
 export interface ContextProps {
-    user: UserProps | null,
+    user: UserProps | undefined,
     setUser: (user: UserProps) => void,
     signIn: (email: string) => Promise<void>
 }
