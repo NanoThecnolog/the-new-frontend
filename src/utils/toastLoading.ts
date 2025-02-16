@@ -1,15 +1,21 @@
 import { toast } from "react-toastify"
+import { debug } from "./debugFunction"
 
-export const toastLoading = () => {
-    const loadingToast = toast.loading("fazendo login...", {
-        closeButton: true
-    })
-    setTimeout(() => {
-        toast.update(loadingToast, {
-            render: "Bem vindo!",
-            type: "success",
-            isLoading: false,
-            autoClose: 3000
+export const toastLoading = async () => {
+    return new Promise<void>((resolve) => {
+
+        const loadingToast = toast.loading("fazendo login...", {
+            closeButton: false
         })
-    }, 2000)
+        debug("toast em execute")
+        setTimeout(() => {
+            toast.update(loadingToast, {
+                render: "Bem vindo!",
+                type: "success",
+                isLoading: false,
+                autoClose: 2000
+            })
+            setTimeout(() => resolve(), 2000)
+        }, 2000)
+    })
 }
