@@ -1,35 +1,30 @@
 'use client'
-import { toast } from "react-toastify";
 import styles from "../styles/page.module.scss";
-import { api } from "@/utils/api";
-import { toastLoading } from "@/utils/toastLoading";
 import { useState } from "react";
+import { useTheNewContext } from "@/contexts/newContext";
+import Image from "next/image";
 
 export default function Home() {
   const [email, setEmail] = useState('')
-
-  async function signIn() {
-    try {
-      const response = await api.post
-    } catch (err) {
-      toast.error("Email não encontrado, confirme seu email e tente novamente!")
-    }
-  }
+  const { signIn } = useTheNewContext()
 
 
 
   return (
     <div className={styles.page}>
+      <div className={styles.logo}>
+        <Image src='/the news logo sem fundo.png' fill alt="Logomarca The News" />
+      </div>
       <main className={styles.main}>
-        <article>
-          <section>
-            <div className={styles.s}>
-              <h1>Bem vindo, usuário</h1>
-              <h2>Faça seu login para acompanhar seu crescimento</h2>
+        <article className={styles.articleContainer}>
+          <section className={styles.sectionContainer}>
+            <div className={styles.textContainer}>
+              <h1>Bem vindo ao The News!</h1>
+              <h2>Faça seu login para acompanhar seu engajamento..</h2>
             </div>
             <div className={styles.inputContainer}>
               <label htmlFor="email">
-                Email:
+                <p>Email:</p>
                 <input
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -39,13 +34,12 @@ export default function Home() {
                 />
               </label>
             </div>
-            <div>
-              <button type="button" onClick={signIn}>Login</button>
+            <div className={styles.buttonContainer}>
+              <button type="button" onClick={() => signIn(email)}>Login</button>
             </div>
-
           </section>
         </article>
       </main>
     </div>
-  );
+  )
 }
