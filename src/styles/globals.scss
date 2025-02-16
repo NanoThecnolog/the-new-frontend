@@ -1,19 +1,29 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&family=Roboto&display=swap");
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #171717;
+  --foreground: #cecece;
+  --red: #9c1111;
+  --gray: #615a5a;
+  --brown: #24030b;
+  --white: #fff;
+  --white2: #e6e6e6;
+  --black: #000;
+  --black2: #242424;
+  --yellow: #ffce04;
+  --yellow2: #e0bf29;
+  --green: #007714;
+
+  --font-Roboto: "Roboto", serif;
+  --font-Mont: "Montserrat", serif;
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+
+
 }
 
 body {
