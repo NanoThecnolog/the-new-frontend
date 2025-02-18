@@ -1,7 +1,6 @@
 'use client'
 import { useTheNewContext } from '@/contexts/newContext'
 import styles from './styles.module.scss'
-import { debug } from '@/utils/debugFunction'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 import UserCard from '@/components/user/UserCard'
@@ -19,7 +18,7 @@ export default function User() {
             <main className={styles.container}>
                 <article className={styles.articleContainer}>
                     <section className={styles.sectionContainer}>
-                        <UserCard newsLetters={user ? user?.newsLetters : []} />
+                        <UserCard newsLetters={user ? user.newsLetters : []} />
                         <ChallengeCard user={user} />
                         <div>
                             desafios diários e progresso deles

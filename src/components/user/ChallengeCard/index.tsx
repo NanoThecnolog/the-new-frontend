@@ -1,6 +1,5 @@
 import { UserProps } from '@/types/User'
 import styles from './styles.module.scss'
-import { debug } from '@/utils/debugFunction'
 import { useMemo } from 'react'
 
 interface ChallengeProps {
@@ -18,12 +17,9 @@ export default function ChallengeCard({ user }: ChallengeProps) {
             year: 'numeric',
             timeZone: 'UTC'
         }).split('/').reverse().join('-')
-        //debug(date)
-        //  debug(user?.newsLetters)
         const formattedNewsLetters = user?.newsLetters.map(post => post.replace('post_', ''))
         return formattedNewsLetters.includes(date)
     }, [user])
-    //debug(hasRead)
 
     return (
         <div className={styles.container}>

@@ -14,8 +14,6 @@ export function NewProvider({ children }: ContextProviderProps) {
     const [user, setUser] = useState<UserProps | null>(null)
     const router = useRouter()
 
-
-
     async function signIn(email: string) {
         try {
             //setUser([])
