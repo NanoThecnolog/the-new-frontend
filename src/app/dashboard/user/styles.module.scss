@@ -1,0 +1,27 @@
+.container {
+    height: 100svh;
+    width: 100%;
+
+    .articleContainer {
+        background-color: gray;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        .sectionContainer {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+
+            .centralContainer {
+                color: var(--black2);
+
+                .text {
+                    font-family: var(--font-Mont);
+                }
+            }
+        }
+    }
+}

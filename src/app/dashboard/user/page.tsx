@@ -4,6 +4,7 @@ import styles from './styles.module.scss'
 import { debug } from '@/utils/debugFunction'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
+import UserCard from '@/components/user/UserCard'
 
 export default function User() {
     const { user } = useTheNewContext()
@@ -14,8 +15,35 @@ export default function User() {
     }, [router, user])
     return (
         <>
-            <h2 className={styles.text}>Bem Vindo usuário</h2>
-            <h4>email: {user && user.email}</h4>
+            <main className={styles.container}>
+                <article className={styles.articleContainer}>
+                    <section className={styles.sectionContainer}>
+                        <UserCard />
+                        <div>
+                            avatar
+                            título
+                            nivel
+                            streak
+                            barra de progresso de nivel e streak
+                            dias seguidos abrindo a newsletter
+                        </div>
+                        <div>
+                            desafios diários e progresso deles
+                        </div>
+                        <div>
+                            lista com newsletters visualizadas pelo usuario
+                        </div>
+                        <div>
+                            ranking geral e por categoria (maior streak?, mais newsletter lidas, etc)
+                        </div>
+
+                        <div className={styles.centralContainer}>
+                            <h2 className={styles.text}>Bem vindo usuário</h2>
+                            <h4>email: {user && user.email}</h4>
+                        </div>
+                    </section>
+                </article>
+            </main>
         </>
     )
 }

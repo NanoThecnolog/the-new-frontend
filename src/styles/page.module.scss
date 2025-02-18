@@ -1,3 +1,5 @@
+@use './animations.scss' as *;
+
 .page {
   display: flex;
   flex-direction: column;
@@ -8,6 +10,7 @@
   gap: 50px;
   background-color: var(--white2);
 
+  @include fadeIn(.4s);
 
   .logo {
     width: 360px;
@@ -50,7 +53,9 @@
       align-items: center;
       justify-content: center;
       gap: 20px;
-      color: var(--black);
+      color: white;
+      text-shadow: 1px 1px 5px var(--black2);
+
 
 
       .textContainer {
@@ -94,9 +99,6 @@
       }
     }
   }
-
-
-
 }
 
 @media(max-width: 315px) {
