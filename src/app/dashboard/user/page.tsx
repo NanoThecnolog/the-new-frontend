@@ -5,11 +5,12 @@ import { debug } from '@/utils/debugFunction'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 import UserCard from '@/components/user/UserCard'
+import ChallengeCard from '@/components/user/ChallengeCard'
 
 export default function User() {
     const { user } = useTheNewContext()
     const router = useRouter()
-    debug("user no dashboard user", user)
+    //debug("user no dashboard user", user)
     useEffect(() => {
         if (!user) return router.push('/')
     }, [router, user])
@@ -18,15 +19,8 @@ export default function User() {
             <main className={styles.container}>
                 <article className={styles.articleContainer}>
                     <section className={styles.sectionContainer}>
-                        <UserCard />
-                        <div>
-                            avatar
-                            título
-                            nivel
-                            streak
-                            barra de progresso de nivel e streak
-                            dias seguidos abrindo a newsletter
-                        </div>
+                        <UserCard newsLetters={user ? user?.newsLetters : []} />
+                        <ChallengeCard user={user} />
                         <div>
                             desafios diários e progresso deles
                         </div>
