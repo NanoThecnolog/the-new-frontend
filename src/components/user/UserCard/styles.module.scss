@@ -1,34 +1,68 @@
 .container {
     width: 350px;
-    height: 250px;
+    height: 150px;
     background: var(--yellow-radial-gradient);
     border-radius: 1rem;
+    border: 3px solid white;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    //flex-direction: column;
+    justify-content: space-between;
     align-items: flex-start;
     padding: 25px;
     gap: 10px;
 
-    .avatarContainer {
-        width: 60px;
-        height: 60px;
-        position: relative;
-        border: 3px solid white;
-        border-radius: 50%;
-        overflow: hidden;
+    .avatarSection {
+        width: 50%;
+
+        .avatarContainer {
+            width: 60px;
+            height: 60px;
+            position: relative;
+            border: 3px solid white;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .barraTotal {
+            height: 15px;
+            width: 100px;
+            background-color: var(--white);
+            border-radius: 2rem;
+            overflow: hidden;
+
+            .barraAtual {
+                background: var(--blue-linear-gradient);
+                height: 100%;
+            }
+        }
     }
 
-    .barraTotal {
-        height: 15px;
-        width: 100px;
-        background-color: var(--white);
-        border-radius: 2rem;
-        overflow: hidden;
+    .streakSection {
+        width: 50%;
 
-        .barraAtual {
-            background: var(--blue-linear-gradient);
-            height: 100%;
+        .streakContainer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .streakCount {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 50px;
+                height: 50px;
+                border: 2px solid white;
+                border-radius: 50%;
+                background: var(--blue-linear-gradient);
+
+                p {
+                    font-weight: 900;
+                    font-size: 1.5rem;
+                    font-family: var(--font-Mont);
+                }
+            }
+
         }
     }
 }

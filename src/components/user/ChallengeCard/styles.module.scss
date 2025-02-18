@@ -1,0 +1,12 @@
+.container {
+    width: 350px;
+    height: 150px;
+    background: var(--yellow-radial-gradient);
+    border-radius: 1rem;
+    border: 3px solid white;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 25px;
+    gap: 10px;
+}
