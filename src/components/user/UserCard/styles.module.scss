@@ -1,0 +1,34 @@
+.container {
+    width: 350px;
+    height: 250px;
+    background: var(--yellow-radial-gradient);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 25px;
+    gap: 10px;
+
+    .avatarContainer {
+        width: 60px;
+        height: 60px;
+        position: relative;
+        border: 3px solid white;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .barraTotal {
+        height: 15px;
+        width: 100px;
+        background-color: var(--white);
+        border-radius: 2rem;
+        overflow: hidden;
+
+        .barraAtual {
+            background: var(--blue-linear-gradient);
+            height: 100%;
+        }
+    }
+}
