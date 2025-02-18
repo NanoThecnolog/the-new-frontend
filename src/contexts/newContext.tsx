@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 export const NewContext = createContext({} as ContextProps)
 
 export function NewProvider({ children }: ContextProviderProps) {
-    const [user, setUser] = useState<UserProps>()
+    const [user, setUser] = useState<UserProps | null>(null)
     const router = useRouter()
 
 
@@ -29,7 +29,6 @@ export function NewProvider({ children }: ContextProviderProps) {
                 email: data[0].email,
                 newsLetters: data ? data.map(news => news.req_id) : []
             }
-
             setUser(obj)
             debug("ligando o toast")
             document.body.style.cursor = 'wait'
