@@ -5,7 +5,6 @@ import { debug } from '@/utils/debugFunction'
 import { DataProps, groupedData } from '@/utils/utilities'
 import { FaStar } from 'react-icons/fa'
 import { calculateStreak } from '@/utils/Gamefication'
-import { getDatePost } from '@/utils/dates'
 
 type RankProps = {
     email: string

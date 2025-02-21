@@ -1,20 +1,15 @@
 'use client'
 import RankingCard from '@/components/user/RankingCard'
 import styles from './styles.module.scss'
-import BarGraphic from '@/components/ui/BarGraphic'
 import { api } from '@/utils/api'
 import { DataProps } from '@/utils/utilities'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { debug } from '@/utils/debugFunction'
 
 export default function ADM() {
     const [loading, setLoading] = useState(false)
 
-    useEffect(() => {
-        getDataDB()
-    }, [])
-
-    async function getDataDB() {
+    const getDataDB = useCallback(async () => {
         if (loading) return
         setLoading(true)
         try {
@@ -25,7 +20,7 @@ export default function ADM() {
             })
             const data: DataProps[] = response.data.data
 
-            let arr: { email: string, req_id: string }[] = []
+            const arr: { email: string, req_id: string }[] = []
             data.map(item => {
                 const { email, req_id } = item
                 const obj = {
@@ -41,7 +36,13 @@ export default function ADM() {
         } finally {
             setLoading(false)
         }
-    }
+    }, [])
+
+    useEffect(() => {
+        getDataDB()
+    }, [getDataDB])
+
+
 
 
     return (

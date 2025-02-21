@@ -7,6 +7,8 @@ type LevelInfo = {
     maxXP: number;
 };
 
+debug("ok")
+
 function generateLevelTable(): LevelInfo[] {
     const table: LevelInfo[] = []
     let currentXp = 0
