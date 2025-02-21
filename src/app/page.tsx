@@ -8,6 +8,10 @@ export default function Home() {
   const [email, setEmail] = useState('')
   const { signIn } = useTheNewContext()
 
+  function handleLogin(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    signIn(email)
+  }
 
 
   return (
@@ -20,23 +24,24 @@ export default function Home() {
           <section className={styles.sectionContainer}>
             <div className={styles.textContainer}>
               <h1>Bem vindo ao The News!</h1>
-              <h2>Faça seu login para acompanhar seu engajamento..</h2>
             </div>
-            <div className={styles.inputContainer}>
-              <label htmlFor="email">
-                <p>Email:</p>
-                <input
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  type="text"
-                  id="email"
-                  placeholder="Digite seu email.."
-                />
-              </label>
-            </div>
-            <div className={styles.buttonContainer}>
-              <button type="button" onClick={() => signIn(email)}>Login</button>
-            </div>
+            <form onSubmit={handleLogin}>
+              <div className={styles.inputContainer}>
+                <label htmlFor="email">
+                  <p>Email:</p>
+                  <input
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    type="text"
+                    id="email"
+                    placeholder="Digite seu email.."
+                  />
+                </label>
+              </div>
+              <div className={styles.buttonContainer}>
+                <button type="submit">Login</button>
+              </div>
+            </form>
           </section>
         </article>
       </main>
