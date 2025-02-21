@@ -21,7 +21,7 @@ function generateLevelTable(): LevelInfo[] {
         })
         currentXp += nextXp
     }
-    debug(table)
+    //debug(table)
     return table
 }
 function generateStreakBonus() {
@@ -72,4 +72,52 @@ export function getExperience(qtd: number): number {
 
 export function getTitlePerLevel(level: number): string {
     return titleRewardPerLevel.filter(reward => level >= reward.level).pop()?.title || 'Iniciante'
+}
+
+type StreakData = {
+    currentStreak: number
+    lastViewDate: string | null
+}
+
+export function calculateStreak(historic: string[]): StreakData {
+    if (historic.length === 0) return {
+        currentStreak: 0,
+        lastViewDate: null
+    }
+    //console.log(historic)
+    let streak = 0
+    let lastDate = new Date(historic[0])
+    //debug(historic)
+
+    for (let i = 1; i < historic.length; i++) {
+        const currentDate = new Date(historic[i])
+        const daysDiff = Math.floor((currentDate.getTime() - lastDate.getTime()) / (1000 * 60 * 60 * 24))
+
+        if (daysDiff === 1 || (daysDiff === 2 && lastDate.getDay() === 6)) if (currentDate.getDay() !== 0) streak++
+        else if (daysDiff > 1) {
+            let penalty = 0;
+            for (let j = 1; j < daysDiff; j++) {
+                const missingDate = new Date(lastDate)
+                missingDate.setDate(missingDate.getDate() + j)
+                if (missingDate.getDay() !== 0) penalty++
+            }
+
+            streak = Math.max(0, streak - penalty)
+            if (streak === 0) {
+                streak = 1;
+            } else {
+                if (currentDate.getDay() !== 0) streak++
+            }
+
+        }
+        lastDate = currentDate
+        //debug("pontuação por dia:", currentDate, streak)
+    }
+    const currentDate = new Date(historic[historic.length - 1])
+    if (currentDate.getDay() !== 0) streak++
+    return {
+        currentStreak: streak,
+        lastViewDate: historic[historic.length - 1]
+    }
+
 }

@@ -22,7 +22,7 @@ export const streakMarkReward = [
 ]
 export const levelConfig = {
     maxLevel: 100, // nivel máximo
-    baseXp: 1, // exp base para começar
+    baseXp: 10, // exp base para começar
     multiplier: 1.1,
     xpPerNewsLetter: 7.5
 }

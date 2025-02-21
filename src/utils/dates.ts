@@ -15,3 +15,14 @@ export function formatedDate(date: string | Date) {
         timeZone: 'UTC'
     })
 }
+
+/**
+ * Função que percorre e remove 'post_' dos elementos e retorna somente a data de cada post
+ * @param date Array de strings com os posts IDs (post_YYYY-MM-DD)
+ * @returns Array formatado com as datas (YYYY-MM-DD)
+ */
+
+export function getDatePost(date: string[]): string[] {
+    return [...new Set(date.map(post => post.replace('post_', '')))]
+        .sort((a, b) => new Date(a).getTime() - new Date(b).getTime())
+}
