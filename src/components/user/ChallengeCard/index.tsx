@@ -1,6 +1,9 @@
 import { UserProps } from '@/types/User'
 import styles from './styles.module.scss'
 import { useMemo } from 'react'
+import { getDatePost } from '@/utils/dates'
+import { IoCheckmarkDone } from 'react-icons/io5'
+import { IoMdClose } from "react-icons/io";
 
 interface ChallengeProps {
     user: UserProps | null
@@ -17,22 +20,28 @@ export default function ChallengeCard({ user }: ChallengeProps) {
             year: 'numeric',
             timeZone: 'UTC'
         }).split('/').reverse().join('-')
-        const formattedNewsLetters = user?.newsLetters.map(post => post.replace('post_', ''))
+        const { newsLetters } = user
+        const formattedNewsLetters = getDatePost(newsLetters)
         return formattedNewsLetters.includes(date)
     }, [user])
 
     return (
         <div className={styles.container}>
             <div>
-                news de hoje
+                Newsletter diária
             </div>
 
             {hasRead ?
-                <div>
-                    Você visualizou! Continue acompanhando nossas notícias para aumentar seu streak e receber mais recompensas!
+                <div className={styles.success}>
+                    <p><IoCheckmarkDone size={30} />Você visualizou! Parabéns!</p>
                 </div>
-                : <div>
-                    Você ainda não visualizou! Corre pra aumentar seu streak
+                : <div className={styles.warning}>
+                    <p>
+                        <IoMdClose size={30} />
+                    </p>
+                    <p>
+                        Você ainda não visualizou? Corre que ainda dá tempo!
+                    </p>
                 </div>
             }
         </div>

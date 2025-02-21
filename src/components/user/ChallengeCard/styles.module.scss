@@ -1,12 +1,32 @@
+@use '../../../styles/animations.scss' as *;
+
 .container {
-    width: 350px;
-    height: 150px;
-    background: var(--yellow-radial-gradient);
+    width: 370px;
+    height: 160px;
+    background-color: var(--white2);
     border-radius: 1rem;
-    border: 3px solid white;
+    border: 3px solid var(--gray);
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
     padding: 25px;
-    gap: 10px;
+    gap: 5px;
+    color: var(--black2);
+
+    .success {
+        svg {
+            color: var(--green);
+            filter: drop-shadow(2px 2px 4px var(--green));
+            @include pulse()
+        }
+    }
+
+    .warning {
+        text-align: center;
+
+        svg {
+            color: var(--red2)
+        }
+    }
 }

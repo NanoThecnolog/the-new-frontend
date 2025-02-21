@@ -1,37 +1,41 @@
 .container {
-    width: 350px;
-    height: 150px;
-    background: var(--yellow-radial-gradient);
+    width: 370px;
+    height: 160px;
+    background: var(--white2);
     border-radius: 1rem;
-    border: 3px solid white;
+    border: 3px solid var(--gray);
     display: flex;
     //flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
     padding: 25px;
     gap: 10px;
+    color: var(--black2);
 
     .avatarSection {
         width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         .avatarContainer {
             width: 60px;
             height: 60px;
             position: relative;
-            border: 3px solid white;
+            border: 3px solid var(--gray);
             border-radius: 50%;
             overflow: hidden;
         }
 
         .barraTotal {
             height: 15px;
-            width: 100px;
-            background-color: var(--white);
+            width: 100%;
+            background-color: var(--gray);
             border-radius: 2rem;
             overflow: hidden;
 
             .barraAtual {
-                background: var(--blue-linear-gradient);
+                background: var(--yellow-radial-gradient);
                 height: 100%;
             }
         }
@@ -45,20 +49,27 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            gap: 15px;
+
+            h4 {
+                font-family: var(--font-Mont);
+
+            }
 
             .streakCount {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: 50px;
-                height: 50px;
-                border: 2px solid white;
+                width: 65px;
+                height: 65px;
+                border: 2px solid var(--gray);
                 border-radius: 50%;
                 background: var(--blue-linear-gradient);
+                color: var(--white2);
 
                 p {
                     font-weight: 900;
-                    font-size: 1.5rem;
+                    font-size: 2rem;
                     font-family: var(--font-Mont);
                 }
             }
