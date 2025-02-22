@@ -29,12 +29,7 @@ export default function RankingCard() {
                 //const datePosts = agrupados.map((item) => getData)
                 const sorted = [...agrupados].sort((a, b) => b.posts.length - a.posts.length)
                 debug(sorted)
-                const sort = agrupados.map(item => ({
-                    email: item.email,
-                    posts: item.posts,
-                    streak: calculateStreak(item.posts).currentStreak
-                }))
-                //debug(sort)
+
 
                 setRanking(sorted)
             } catch (err) {

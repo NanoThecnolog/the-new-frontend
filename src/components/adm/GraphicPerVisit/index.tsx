@@ -20,8 +20,8 @@ export default function GraphicVisits({ data }: GraphicVisitsProps) {
     }, [data])
 
     return (
-        <>
+        <div className={styles.container}>
             <BarGraphic data={visits} title='Visualizações por posts' />
-        </>
+        </div>
     )
 }
