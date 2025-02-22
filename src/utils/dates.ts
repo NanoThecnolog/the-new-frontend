@@ -26,3 +26,13 @@ export function getDatePost(date: string[]): string[] {
     return [...new Set(date.map(post => post.replace('post_', '')))]
         .sort((a, b) => new Date(a).getTime() - new Date(b).getTime())
 }
+
+/**
+ * Função auxiliar para converter string em DATA no fuso local, evitando erros de fuso horário ou deslocamento de data
+ * @param date Data no formato string ("YYYY-MM-DD")
+ * @returns retorna a data no horário local
+ */
+
+export function localDate(date: string) {
+    return new Date(date + "T00:00:00")
+}

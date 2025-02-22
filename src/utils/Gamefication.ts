@@ -1,3 +1,4 @@
+import { localDate } from "./dates";
 import { debug } from "./debugFunction";
 import { levelConfig, titleRewardPerLevel } from "./variables";
 
@@ -88,11 +89,11 @@ export function calculateStreak(historic: string[]): StreakData {
     }
     //console.log(historic)
     let streak = 0
-    let lastDate = new Date(historic[0])
+    let lastDate = localDate(historic[0])
     //debug(historic)
 
     for (let i = 1; i < historic.length; i++) {
-        const currentDate = new Date(historic[i])
+        const currentDate = localDate(historic[i])
         const daysDiff = Math.floor((currentDate.getTime() - lastDate.getTime()) / (1000 * 60 * 60 * 24))
 
         if (daysDiff === 1 || (daysDiff === 2 && lastDate.getDay() === 6)) if (currentDate.getDay() !== 0) streak++
@@ -115,7 +116,7 @@ export function calculateStreak(historic: string[]): StreakData {
         lastDate = currentDate
         //debug("pontuação por dia:", currentDate, streak)
     }
-    const currentDate = new Date(historic[historic.length - 1])
+    const currentDate = localDate(historic[historic.length - 1])
     if (currentDate.getDay() !== 0) streak++
     return {
         currentStreak: streak,
