@@ -26,9 +26,7 @@ export default function User() {
                         <UserCard newsLetters={user ? user.newsLetters : []} />
                         <ChallengeCard user={user} />
                         <RankingCard />
-                        {
-                            <History news={user ? user.newsLetters : []} />
-                        }
+                        <History news={user ? user.newsLetters : []} />
                     </section>
                 </article>
             </main>
