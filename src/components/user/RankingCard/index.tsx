@@ -34,7 +34,7 @@ export default function RankingCard() {
                     posts: item.posts,
                     streak: calculateStreak(item.posts).currentStreak
                 }))
-                debug(sort)
+                //debug(sort)
 
                 setRanking(sorted)
             } catch (err) {

@@ -1,26 +1,36 @@
 'use client'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
+import styles from './styles.module.scss'
 
-type DataProps = {
+export type BarDataProps = {
     post: string
-    visitors: number
+    leitores: number
 }[]
 
 type ChartProps = {
-    data: DataProps
+    data: BarDataProps,
+    title: string,
+    slicer?: number
 }
 
-export default function BarGraphic({ data }: ChartProps) {
-    const lastFiveData = data.slice(-5)
+export default function BarGraphic({ data, title, slicer }: ChartProps) {
+    const lastFiveData = data.slice(slicer ?? 0)
 
     return (
-        <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={lastFiveData}>
-                <XAxis dataKey="post" />
-                <YAxis />
-                <Tooltip />
-                <Bar dataKey="visitors" fill="#8884d8" radius={[5, 5, 0, 0]} />
-            </BarChart>
-        </ResponsiveContainer>
+
+        <div className={styles.container}>
+
+            <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={lastFiveData}>
+                    <XAxis dataKey="post" />
+                    <YAxis />
+                    <Tooltip />
+                    <Bar dataKey="leitores" fill="#8884d8" radius={[5, 5, 0, 0]} />
+                </BarChart>
+            </ResponsiveContainer>
+            <div>
+                <h2>{title}</h2>
+            </div>
+        </div>
     )
 }

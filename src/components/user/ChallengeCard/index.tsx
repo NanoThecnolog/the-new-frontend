@@ -33,7 +33,8 @@ export default function ChallengeCard({ user }: ChallengeProps) {
 
             {hasRead ?
                 <div className={styles.success}>
-                    <p><IoCheckmarkDone size={30} />Você visualizou! Parabéns!</p>
+                    <p><IoCheckmarkDone size={30} /></p>
+                    <p>Você visualizou! Parabéns!</p>
                 </div>
                 : <div className={styles.warning}>
                     <p>
